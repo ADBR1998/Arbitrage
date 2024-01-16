@@ -25,15 +25,12 @@ print("Symbol names exported to symbol_names.csv")
 # Load the CSV file into a DataFrame
 df = pd.read_csv('symbol_names.csv')
 
-first_value = df.iloc[0, 0]
-
-
 
 # Create an empty DataFrame to store the results
 result_df = pd.DataFrame(columns=['Symbol', 'Price_vs_USDC'])
 
 # Loop through each symbol in the CSV file
-for symbol in first_value['Symbol']:
+for symbol in df['Symbol']:
     # Make the API request
     url = f'https://price.jup.ag/v4/price?ids={symbol}&vsToken=USDC'
     response = requests.get(url)
